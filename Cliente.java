@@ -22,22 +22,31 @@ public class Cliente {
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Digite a operação desejada (soma, subtracao, multiplicacao, divisao, porcentagem, raiz ou potencia): ");
         String operacao = stdIn.readLine();
-        System.out.print("Digite o primeiro operando: ");
-        double operando1 = Double.parseDouble(stdIn.readLine());
-        System.out.print("Digite o segundo operando: ");
-        double operando2 = Double.parseDouble(stdIn.readLine());
 
-        // Realiza a operação solicitada com o servidor correspondente
         double resultado = 0;
         if (operacao.equals("soma") || operacao.equals("subtracao") || operacao.equals("multiplicacao") || operacao.equals("divisao")) {
+            System.out.print("Digite o primeiro operando: ");
+            double operando1 = Double.parseDouble(stdIn.readLine());
+            System.out.print("Digite o segundo operando: ");
+            double operando2 = Double.parseDouble(stdIn.readLine());
             outA.println(operacao);
             outA.println(operando1);
             outA.println(operando2);
             resultado = Double.parseDouble(inA.readLine());
-        } else if (operacao.equals("porcentagem") || operacao.equals("raiz") || operacao.equals("potencia")) {
+        } else if (operacao.equals("porcentagem") || operacao.equals("potencia")) {
+            System.out.print("Digite o primeiro operando: ");
+            double operando1 = Double.parseDouble(stdIn.readLine());
+            System.out.print("Digite o segundo operando: ");
+            double operando2 = Double.parseDouble(stdIn.readLine());
             outB.println(operacao);
             outB.println(operando1);
             outB.println(operando2);
+            resultado = Double.parseDouble(inB.readLine());
+        } else if (operacao.equals("raiz")) {
+            System.out.print("Digite o primeiro operando: ");
+            double operando1 = Double.parseDouble(stdIn.readLine());
+            outB.println(operacao);
+            outB.println(operando1);
             resultado = Double.parseDouble(inB.readLine());
         } else {
             System.out.println("Operação inválida.");
