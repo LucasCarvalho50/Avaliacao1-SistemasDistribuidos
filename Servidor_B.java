@@ -21,24 +21,28 @@ public class Servidor_B {
 
             // Lê a operação solicitada pelo cliente e os operandos
             String operacao = in.readLine();
-            double operando1 = Double.parseDouble(in.readLine());
-            double operando2 = Double.parseDouble(in.readLine());
 
             // Realiza a operação solicitada
             double resultado = 0;
-            switch (operacao) {
-                case "porcentagem":
-                    resultado = (operando1 * operando2) / 100;
-                    break;
-                case "raiz":
-                    resultado = Math.sqrt(operando1);
-                    break;
-                case "potencia":
-                    resultado = Math.pow(operando1, operando2);
-                    break;
-                default:
-                    System.out.println("Operação invalida.");
+            if(operacao.equals("porcentagem") || operacao.equals("potencia")){
+                double operando1 = Double.parseDouble(in.readLine());
+                double operando2 = Double.parseDouble(in.readLine());
+                switch (operacao) {
+                    case "porcentagem":
+                        resultado = (operando1 * 100) / operando2;
+                        break;
+                    case "potencia":
+                        resultado = Math.pow(operando1, operando2);
+                        break;
+                    default:
+                        System.out.println("Operação invalida.");
+                }
+            }else if(operacao.equals("raiz")){
+                double operando1 = Double.parseDouble(in.readLine());
+                resultado = Math.sqrt(operando1);
             }
+
+
             // Envia o resultado para o cliente
             out.println(resultado);
 
